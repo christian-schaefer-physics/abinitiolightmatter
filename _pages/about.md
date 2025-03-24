@@ -28,12 +28,13 @@ latest_posts:
 ---
 
 Our **interest** lies at the interface of established research areas -- **the uncharted territory in between the beaten paths**.
-We interweave **3 domains** to a unique approach at the forefront of applied computational materials science:
 
-(i) development of theoretical tools to describe the self-consistent and non-perturbative interaction between (quantized) electromagnetic fields and realistic matter from first principles
+**We interweave 3 domains** to a unique approach at the forefront of applied computational materials science:
 
-(ii) advancing green chemistry via polaritonic chemistry, plasmonic catalysis, and chiral polaritonics
+**(i)** development of theoretical tools to describe the self-consistent and non-perturbative interaction between (quantized) electromagnetic fields and realistic matter from first principles
 
-(iii) predicting novel quantum-impurity systems, exploring quantum scrambling, and developing near-term quantum algorithmic
+**(ii)** advancing green chemistry via polaritonic chemistry, plasmonic catalysis, and chiral polaritonics
+
+**(iii)** predicting novel quantum-impurity systems, exploring quantum scrambling, and developing near-term quantum algorithmic
 
 Find more details in the research and publications tab or contact us directly via the people section. We are usually equipped with towels, but always welcoming and open minded.
