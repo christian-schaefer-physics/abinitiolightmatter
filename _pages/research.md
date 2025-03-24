@@ -2,10 +2,10 @@
 layout: page
 title: research
 permalink: /research/
-description: A growing collection of your cool projects.
+description: A small collection of our current research projects
 nav: true
 nav_order: 2
-display_categories: [work, fun]
+display_categories: [AbInitioQED, QEDChemistry, QuantumImpurities, Other]
 horizontal: false
 ---
 

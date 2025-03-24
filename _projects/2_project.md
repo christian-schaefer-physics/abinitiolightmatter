@@ -1,81 +1,73 @@
 ---
 layout: page
-title: project 2
-description: a project with a background image and giscus comments
-img: assets/img/3.jpg
-importance: 2
-category: work
-giscus_comments: true
+title: QED Chemistry
+description: Shaping Green Chemistry with Electromagnetic Environments
+img: assets/img/conceptart-sec42.jpg
+importance: 1
+category: QEDChemistry
+related_publications: false
 ---
 
-Every project has a beautiful feature showcase page.
-It's easy to include images in a flexible 3-column grid format.
-Make your photos 1/3, 2/3, or full width.
+Material science, chemistry, and biology focuses heavily on the interplay between electrons and nuclei, while the interplay with (quantum) light is rarely taken into account.
+However, new developments in polaritonics, (quantum) plasmonics, and quantum technology promps the need for a predictive theory.
+We are developing such tools.
 
-To give your project a background in the portfolio page, just add the img tag to the front matter like so:
 
-    ---
-    layout: page
-    title: project
-    description: a project with a background image
-    img: /assets/img/12.jpg
-    ---
-
+## Embedding Techniques 
 <div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/1.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
+    <div class="col-sm-5 mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/toc.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
     </div>
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/3.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/5.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
+    <div class="col-sm-7 mt-3 mt-md-0">
+        Electromagnetic environments, may they describe large ensembles of molecules, resonator structures, or catalytic plasmonic elements, extend often over hundreds of nanometers.
+        The system of interest, e.g. a reactive molecule, extends merely over a minute fraction of this space. A reasonable approach is therefore to structure such a system,
+        pick the ideal tool for each length-scale, and describe their interaction. For this, we are combining, classical electrodynamics, (embedding) density-functional theory, 
+        macroscopic QED, and machine learning potentials.
     </div>
 </div>
-<div class="caption">
-    Caption photos easily. On the left, a road goes through a tunnel. Middle, leaves artistically fall in a hipster photoshoot. Right, in another hipster photoshoot, a lumberjack grasps a handful of pine needles.
-</div>
+
+
+## Open-System Many-Body Approaches
 <div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/5.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
+    <div class="col-sm-5 mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/bbgkyheom.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
+    </div>
+    <div class="col-sm-7 mt-3 mt-md-0">
+        No quantum system is isolated. For example, the interplay between an electronic transition and surrounding phononic modes results in scattering phenoma that broaden, decohere,
+        and ultimately thermalize any excitation. It is now far from trivial to describe a complex many-body system that is subject to interaction with such a bath. We tackle this
+        challenge by stacking density matrix hierachies. The Hierarchical Equations of Motion (HEOM), typically described the entire system at once, are traced onto the few-body domain
+        of individual electrons or excitations and approximations for this reduced density matrix hiearchy, known as BBGKY, are enforced. This approach is extremely flexible and powerful.
+        It captures correlation and entanglement between emitters and photons reasonably good while being often barely more expensive to calculate than classical mean-field approaches.
+        Finally, our approach can be used to simulate many-body electronic systems, such as Hubbard or molecular systems, subject to structured baths in a rigorous fashion.
     </div>
 </div>
-<div class="caption">
-    This image can also have a caption. It's like magic.
-</div>
 
-You can also put regular text between your rows of images.
-Say you wanted to write a little bit about your project before you posted the rest of the images.
-You describe how you toiled, sweated, _bled_ for your project, and then... you reveal its glory in the next row of images.
 
-<div class="row justify-content-sm-center">
-    <div class="col-sm-8 mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/6.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
+## Quantum Electrodynamical Density-Functional Theory
+<div class="row">
+    <div class="col-sm-5 mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/qedft.png" title="example image" class="img-fluid rounded z-depth-1" %}
     </div>
-    <div class="col-sm-4 mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/11.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
+    <div class="col-sm-7 mt-3 mt-md-0">
+        Density-functional theory is a widely used ab initio technique to describe (foremost) the electronic structure of molecules, solids, etc.
+        Quantum electrodynamical density-functional theory (QEDFT) extends this by adding the electromagnetic fields as an additional component.
+        This way, QEDFT can predict how electrons respond to being strongly coupled to electromagnetic fields, and how molecular structure and chemical reactions are altered.
+        Our group focuses in particular on overcoming fundamental limitations associated with common adiabatic approximations and combinations with embedding techniques to
+        describe larger systems.
     </div>
 </div>
-<div class="caption">
-    You can also have artistically styled 2/3 + 1/3 images, like these.
+
+
+## Machine Learning Potentials and Light-Matter Interaction
+<div class="row">
+    <div class="col-sm-5 mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/mlmd.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
+    </div>
+    <div class="col-sm-7 mt-3 mt-md-0">
+        Nuclei stand never still. Every chemical reaction, diffusion, photo-absorption/emission, and relaxation process requires a detailed description of their motion.
+        Machine learning has revolutionized this field over the past years. Modern machine learning potentials can reach near perfect agreement with their reference data (commonly DFT)
+        but are multiple orders of magnitude faster. We train not only for forces and energies, but also dipole moments, polarizabilities, ... which paves a way to simulate IR and Raman
+        spectra, describe signatures during chemical reactions, and allows us to describe how chemical reactions can be altered under strong coupling.
+    </div>
 </div>
 
-The code is simple.
-Just wrap your images with `<div class="col-sm">` and place them inside `<div class="row">` (read more about the <a href="https://getbootstrap.com/docs/4.4/layout/grid/">Bootstrap Grid</a> system).
-To make images responsive, add `img-fluid` class to each; for rounded corners and shadows use `rounded` and `z-depth-1` classes.
-Here's the code for the last row of images above:
-
-{% raw %}
-
-```html
-<div class="row justify-content-sm-center">
-  <div class="col-sm-8 mt-3 mt-md-0">
-    {% include figure.liquid path="assets/img/6.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-  </div>
-  <div class="col-sm-4 mt-3 mt-md-0">
-    {% include figure.liquid path="assets/img/11.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-  </div>
-</div>
-```
-
-{% endraw %}
