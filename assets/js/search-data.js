@@ -53,8 +53,8 @@ ninja.data = [{
           description: "Complex System-Bath interactions for realistic systems",
           section: "Projects",handler: () => {
               window.location.href = "/projects/1_2.html";
-            },},{id: "projects-quantum-electrodynamical-density-functional-theory",
-          title: 'Quantum Electrodynamical Density-Functional Theory',
+            },},{id: "projects-qedft",
+          title: 'QEDFT',
           description: "Linking the most popular framework for ab initio electronic structure theory with QED",
           section: "Projects",handler: () => {
               window.location.href = "/projects/1_3.html";
