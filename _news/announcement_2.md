@@ -7,7 +7,7 @@ related_posts: false
 
 ## Hiring!
 
-We are looking for 2 motivated PhD students. Find the official calls <a href="#">here</a>.
+We are looking for 2 motivated PhD students. Find the official calls <a href="https://jobs.tuwien.ac.at/Jobs">here</a>.
 Feel free to contact me if you should have any questions.
 
 #### Quick checklist
