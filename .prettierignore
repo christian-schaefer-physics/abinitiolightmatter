@@ -1,3 +1,8 @@
 # Ignore artifacts:
 build
 coverage
+
+# Ignore JS and SCSS files that contain Liquid tags
+assets/js/*.js
+assets/css/*.scss
+_scripts/*.liquid.js
