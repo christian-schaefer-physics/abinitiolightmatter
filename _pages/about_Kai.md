@@ -1,4 +1,4 @@
-## Collaborating PhD student: Kai Müller
+## Visiting PhD student: Kai Müller
 
 #### Short vita
 
