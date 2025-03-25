@@ -23,4 +23,10 @@ Our **interest** lies at the interface of established research areas -- **the un
 
 **(iii)** predicting novel quantum-impurity systems, exploring quantum scrambling, and developing near-term quantum algorithmic
 
+<div class="row">
+    <div class="col mt-3 mt-md-0">
+      {% include figure.liquid loading="eager" path="assets/img/microspherequbit.png" title=" " class="img-fluid rounded z-depth-1" %}
+    </div>
+</div>
+
 Find more details in the research and publications tab or contact us directly via the people section. We are usually equipped with towels, but always welcoming and open minded.
