@@ -2,7 +2,7 @@
 
 [orcid](https://orcid.org/0000-0002-8557-733X),
 [google-scholar](https://scholar.google.de/citations?user=IKCuzO8AAAAJ&hl=en),
-[researchgate](https://www.researchgate.net/profile/Christian_Schaefer21),
+[researchgate](https://www.researchgate.net/profile/Christian-Schaefer-17),
 [LinkedIn](https://de.linkedin.com/in/christian-sch%C3%A4fer-a69297216)
 
 #### Short vita
