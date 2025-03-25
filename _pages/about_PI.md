@@ -16,5 +16,3 @@ Chalmers University of Technology, Gothenburg, Sweden
 
 2016-2020: PhD Student at the Max-Planck-Institute for the Structure and Dynamics of
 Matter (MPSD), Hamburg, Germany
-
-
