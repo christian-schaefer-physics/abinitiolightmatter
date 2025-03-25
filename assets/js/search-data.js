@@ -85,7 +85,7 @@ ninja.data = [{
               window.location.href = "/projects/3_1.html";
             },},{id: "projects-surface-science",
           title: 'Surface Science',
-          description: "Collaborations with experimental surface science for single-atom catalysis",
+          description: "Collaborations with experimental surface science",
           section: "Projects",handler: () => {
               window.location.href = "/projects/surfacescience.html";
             },},{
