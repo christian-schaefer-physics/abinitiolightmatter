@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://christian-schaefer-physics/abinitiolightmatter.github.io/sitemap.xml
+Sitemap: https://christian-schaefer-physics.github.io/abinitiolightmatter/sitemap.xml
