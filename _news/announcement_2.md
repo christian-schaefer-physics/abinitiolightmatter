@@ -5,7 +5,7 @@ inline: true
 related_posts: false
 ---
 
-## Hiring! 
+## Hiring!
 
 We are looking for 2 motivated PhD students. Find the official calls <a href="#">here</a>.
 Feel free to contact me if you should have any questions.
@@ -19,4 +19,3 @@ Feel free to contact me if you should have any questions.
     <li>solid software development skills (Python and Unix)</li> 
     <li>ideally: experiences in electronic structure theory, molecular dynamics, machine learning, finite-element solvers, quantum electrodynamics</li>
 </ul>
-

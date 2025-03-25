@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-## We are starting! Follow us on our journey :sparkles::sparkles::sparkles: 
+## We are starting! Follow us on our journey :sparkles::sparkles::sparkles:
