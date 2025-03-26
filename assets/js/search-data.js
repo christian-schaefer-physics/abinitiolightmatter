@@ -30,9 +30,9 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/abinitiolightmatter/publications/";
           },
-        },{id: "nav-teaching",
-          title: "teaching",
-          description: "lectures, materials, and didactical publications",
+        },{id: "nav-master-projects-amp-teaching",
+          title: "master projects &amp; teaching",
+          description: "master projects, lectures, materials, and didactical publications",
           section: "Navigation",
           handler: () => {
             window.location.href = "/abinitiolightmatter/teaching/";
