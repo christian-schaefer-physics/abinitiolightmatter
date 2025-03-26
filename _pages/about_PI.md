@@ -1,4 +1,4 @@
-## PI: Christian Schäfer ([mail](mailto:christian.schaefer.physics@gmail.com))
+## PI: Christian Schäfer ([mail](mailto:christian.schaefer@tuwien.ac.at))
 
 [orcid](https://orcid.org/0000-0002-8557-733X),
 [google-scholar](https://scholar.google.de/citations?user=IKCuzO8AAAAJ&hl=en),
