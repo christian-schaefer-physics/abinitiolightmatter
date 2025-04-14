@@ -30,7 +30,9 @@ A less explored yet exciting domain are molecular few-emitter lasers. Such syste
 in between a classical laser and a typical quantum system. We have developed a new approach to
 describe such systems, allowing us to go beyond the established approximations. What remains now
 is to leverage this approach to better understand few-emitter lasers, ideally boosting their performance
-in unexplored parameter domains. Your contribution will provide an important step in developing new lasers
+in unexplored parameter domains. A widely applied approximation is that of incoherent pumping, but
+this limits theoretical descriptions to only a subset of emitters and driving characteristics.
+Your contribution will provide an important step in developing new lasers
 that can be designed on nanometer scales and that will host physics that remains largely unexplored.
 
 #### Promoting User-friendliness for Open-System Many-Body Methods
