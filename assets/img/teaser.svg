@@ -28,11 +28,11 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      showgrid="false"
-     inkscape:zoom="0.4204826"
-     inkscape:cx="286.57547"
-     inkscape:cy="395.97358"
-     inkscape:window-width="2560"
-     inkscape:window-height="1534"
+     inkscape:zoom="0.2973261"
+     inkscape:cx="425.45878"
+     inkscape:cy="258.97491"
+     inkscape:window-width="1920"
+     inkscape:window-height="1163"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
@@ -145,9 +145,9 @@
        inkscape:collect="always"
        style="color-interpolation-filters:sRGB"
        id="filter1064"
-       x="-0.0053129242"
+       x="-0.0048778182"
        y="-0.080586432"
-       width="1.0106258"
+       width="1.0097556"
        height="1.1611729"><feGaussianBlur
          inkscape:collect="always"
          stdDeviation="0.75811017"
@@ -276,7 +276,7 @@
          id="tspan494"
          style="fill:#000000;stroke-width:0.264583"
          x="-91.715813"
-         y="27.671053">Spectoscopy</tspan></text><text
+         y="27.671053">Spectroscopy</tspan></text><text
        xml:space="preserve"
        style="font-size:22.5778px;line-height:1.25;font-family:sans-serif;fill:#ffffff;stroke-width:0.264583"
        x="-90.908279"
@@ -286,7 +286,7 @@
          id="tspan406-5-5"
          style="fill:#ffffff;stroke-width:0.264583"
          x="-90.908279"
-         y="28.779488">Spectoscopy</tspan></text></g><g
+         y="28.779488">Spectroscopy</tspan></text></g><g
      id="g929"
      transform="matrix(-0.31940056,-0.14978461,-0.14978463,0.31940058,-9.3967497,-2.9854807)"
      style="stroke:#0024f8;stroke-width:4.4022;stroke-dasharray:none;stroke-opacity:1"><g
