@@ -1,7 +1,7 @@
 ## PI: Christian Schäfer ([mail](mailto:christian.schaefer@tuwien.ac.at))
 
 [orcid](https://orcid.org/0000-0002-8557-733X),
-[google-scholar](https://scholar.google.de/citations?user=IKCuzO8AAAAJ&hl=en),
+[google-scholar](https://scholar.google.com/citations?user=IKCuzO8AAAAJ&hl=en),
 [LinkedIn](https://de.linkedin.com/in/christian-sch%C3%A4fer-a69297216)
 
 #### Short vita
