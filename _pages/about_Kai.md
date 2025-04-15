@@ -9,5 +9,6 @@ previously: BSc and MSc at TU Dresden
 #### Projects
 
 No quantum system is perfectly isolated, and for many applications, the bath plays an essential role.
-Kai is developing a many-body open system methods that can describe larger many-body systems (strongly) interacting with a structured bath.
-Such methods are important to understand the dynamic of molecules that are embedded in host materials and can provide novel insight into lasing transitions within system of only a few molecules.
+Kai is developing methods that can describe larger many-body systems (strongly) interacting with a structured bath.
+Such methods are important to understand optical features of molecules that are embedded in host materials.
+They also provide novel insight into miniature versions of lasers which comprise only a few molecules in nanometer-sized cavities.
