@@ -37,10 +37,7 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/abinitiolightmatter/teaching/";
           },
-        },{id: "news-hiring-we-are-looking-for-2-motivated-phd-students-find-the-official-calls-here-feel-free-to-contact-me-if-you-should-have-any-questions-quick-checklist-motivated-excellent-english-skills-master-diploma-in-physics-chemistry-or-related-studies-solid-software-development-skills-python-and-unix-ideally-experiences-in-electronic-structure-theory-molecular-dynamics-machine-learning-finite-element-solvers-quantum-electrodynamics",
-          title: 'Hiring! We are looking for 2 motivated PhD students. Find the official calls...',
-          description: "",
-          section: "News",},{id: "news-we-are-starting-follow-us-on-our-journey-sparkles-sparkles-sparkles",
+        },{id: "news-we-are-starting-follow-us-on-our-journey-sparkles-sparkles-sparkles",
           title: 'We are starting! Follow us on our journey :sparkles::sparkles::sparkles:',
           description: "",
           section: "News",},{id: "projects-qed-embedding-techniques",
