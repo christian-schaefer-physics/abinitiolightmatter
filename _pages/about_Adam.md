@@ -1,4 +1,4 @@
-## Visiting PhD student: Kai Müller
+## PhD student: Adam Vavrecka
 
 #### Short vita
 
@@ -11,4 +11,3 @@ previously: BSc and MSc at Charles University Prague
 Adam investigates direct plasmonic catalysis in electromagnetic superlattices and bound-state-in-continuum (BIC) systems.
 His research explores how light can speed up or steer reactions while avoiding the damage to the catalyst that is common in thermally driven processes.
 His work contributes to the design of sustainable technologies for clean energy and chemical production, such as light-driven hydrogen generation.
-
