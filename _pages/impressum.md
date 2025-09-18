@@ -8,6 +8,6 @@ permalink: /impressum/
 
 Contact Person: Dr. Christian Schäfer
 
-Contact Address: Laubenheimer Str. 31, 14197 Berlin, Germany
+Contact Address: Koelblgasse 30/40, 1030 Wien, Austria
 
 Contact Email: see PI in people section

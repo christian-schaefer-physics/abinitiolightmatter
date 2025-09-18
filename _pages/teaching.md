@@ -61,3 +61,11 @@ venue: RTG DynCAM – summer school 2023
 format: 5 x 90 minutes
 
 material: lecture notes and slides (please contact me if you are interested)
+
+#### Introduction to Quantum Chemistry
+
+venue: IAP Nano-Teamsitzung 2025
+
+format: 2 x 120 minutes
+
+material: handwritten lecture notes (please contact me if you are interested)

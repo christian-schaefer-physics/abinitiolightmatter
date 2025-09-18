@@ -15,13 +15,13 @@ profiles:
     image_circular: true # crops the image to make it circular
 
   - align: left
-    image: Foto_Kai_Mueller.jpg
-    content: about_Kai.md
+    image: Foto_AdamV.jpg
+    content: about_Adam.md
     image_circular: true
 
   - align: left
-    image: dummy.png
-    content: about_Nils.md
+    image: Foto_Kai_Mueller.jpg
+    content: about_Kai.md
     image_circular: true
 
   - align: left
