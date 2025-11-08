@@ -20,6 +20,11 @@ profiles:
     image_circular: true
 
   - align: left
+    image: Foto_Jonas.jpg
+    content: about_Jonas.md
+    image_circular: true
+
+  - align: left
     image: Foto_Kai_Mueller.jpg
     content: about_Kai.md
     image_circular: true
