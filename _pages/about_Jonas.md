@@ -4,7 +4,7 @@
 
 now: PhD student in the AILM group since Nov 2025
 
-previously: BSc and MSc at Uni Kiel, Germany
+previously: BSc and MSc at Uni Bremen, Germany
 
 #### Projects
 
