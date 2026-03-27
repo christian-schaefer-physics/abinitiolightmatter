@@ -37,14 +37,8 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/abinitiolightmatter/teaching/";
           },
-        },{id: "news-we-are-starting-follow-us-on-our-journey-sparkles-sparkles-sparkles",
-          title: 'We are starting! Follow us on our journey :sparkles::sparkles::sparkles:',
-          description: "",
-          section: "News",},{id: "news-adam-is-starting-his-phd-in-the-ailm-group-welcome-to-vienna",
-          title: 'Adam is starting his PhD in the AILM group – welcome to Vienna!...',
-          description: "",
-          section: "News",},{id: "news-jonas-is-starting-his-phd-in-the-ailm-group-welcome-to-vienna",
-          title: 'Jonas is starting his PhD in the AILM group – welcome to Vienna!...',
+        },{id: "news-new-paper-out-dating-can-be-tough-even-between-impurity-molecules-and-organic-crystals-here-we-play-the-role-of-a-matchmaker-and-identify-new-couples-that-could-build-a-bright-future-as-quantum-light-matter-interface-öhman-et-al-2026",
+          title: 'New paper out! Dating can be tough, even between impurity molecules and organic...',
           description: "",
           section: "News",},{id: "projects-qed-embedding-techniques",
           title: 'QED Embedding Techniques',
