@@ -1,8 +1,8 @@
 ---
 layout: post
-date: 2025-08-01
+date: 2026-03-27
 inline: true
 related_posts: false
 ---
 
-## We are starting! Follow us on our journey :sparkles::sparkles::sparkles:
+## New paper out! Dating can be tough, even between impurity molecules and organic crystals. Here, we play the role of a matchmaker and identify new couples that could build a bright future as quantum light-matter interface {% cite ohman2025prediction %}
