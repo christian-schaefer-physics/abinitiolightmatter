@@ -8,6 +8,6 @@ permalink: /impressum/
 
 Contact Person: Dr. Christian Schäfer
 
-Contact Address: Koelblgasse 30/40, 1030 Wien, Austria
+Contact Address: Wiedner Hauptstr. 8-10, 1040 Wien, Austria
 
 Contact Email: see PI in people section
