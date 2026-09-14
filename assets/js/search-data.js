@@ -83,6 +83,11 @@ ninja.data = [{
           description: "Predicting novel molecular quantum impurities for quantum technology",
           section: "Projects",handler: () => {
               window.location.href = "/abinitiolightmatter/projects/3_1.html";
+            },},{id: "projects-molecular-lasing",
+          title: 'Molecular Lasing',
+          description: "Reintroducing structural complexity to control lasing",
+          section: "Projects",handler: () => {
+              window.location.href = "/abinitiolightmatter/projects/3_2.html";
             },},{id: "projects-surface-science",
           title: 'Surface Science',
           description: "Collaborations with experimental surface science",
