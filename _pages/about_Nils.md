@@ -1,8 +1,8 @@
-## Master student: Nils K. Drakenfors
+## Alumni: Nils K. Drakenfors
 
 #### Short vita
 
-now: master studies at Chalmers University of technology
+previously: master studies at Chalmers University of technology
 
 #### Projects
 
