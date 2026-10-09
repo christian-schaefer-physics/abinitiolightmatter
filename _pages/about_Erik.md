@@ -1,8 +1,8 @@
-## Master student: Erik K. Öhman
+## Alumni: Erik K. Öhman
 
 #### Short vita
 
-now: master studies at Chalmers University of technology
+previously: master student at Chalmers University of technology
 
 #### Projects
 

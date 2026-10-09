@@ -1,10 +1,10 @@
-## Visiting PhD student: Kai Müller
+## Alumni: Kai Müller
 
 #### Short vita
 
-now: PhD student with Prof. Dr. Walter Strunz at the TU Dresden
+now: PostDoc in Oxford
 
-previously: BSc and MSc at TU Dresden
+previously: PhD with Prof. Dr. Walter Strunz at TU Dresden and visiting PhD student in the group
 
 #### Projects
 
