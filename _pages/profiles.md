@@ -25,6 +25,11 @@ profiles:
     image_circular: true
 
   - align: left
+    image: lorenzo.jpeg
+    content: about_Lorenzo.md
+    image_circular: true
+
+  - align: left
     image: Foto_Kai_Mueller.jpg
     content: about_Kai.md
     image_circular: true
