@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>Hopfield emitters — interactive avoided crossing</title>
+<!-- mathjs is used ONLY for the lossy (gamma>0) complex eigen-solver.
+     The lossless (gamma=0) case uses a built-in Jacobi eigensolver and
+     works without any network. -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/12.4.1/math.min.js"></script>
+<style>
+  :root{
+    --bg:#f7f8fa; --panel:#ffffff; --ink:#1c2333; --muted:#5b6472;
+    --accent:#2456a8; --line:#d7dce4; --grid:#383e4a;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    background:var(--bg);color:var(--ink);line-height:1.45;
+  }
+  header{
+    padding:18px 16px 8px;background:var(--panel);border-bottom:1px solid var(--line);
+  }
+  h1{font-size:20px;margin:0 0 4px}
+  header p{margin:0;font-size:13px;color:var(--muted);max-width:900px}
+  .ham{
+    font-family:"STIX Two Math","Cambria Math","Times New Roman",serif;
+    font-size:19px;line-height:2;margin:6px 0 0;color:var(--ink);
+    white-space:nowrap;overflow-x:auto;
+  }
+  .ham sub{font-size:12px}
+  main{display:flex;flex-wrap:wrap;gap:16px;padding:16px;max-width:1200px;margin:0 auto;align-items:flex-start}
+  .plotcard{flex:1 1 560px;min-width:300px;background:var(--panel);border:1px solid var(--line);
+    border-radius:10px;padding:12px}
+  .controls{flex:1 1 300px;min-width:280px;max-width:400px;background:var(--panel);
+    border:1px solid var(--line);border-radius:10px;padding:14px}
+  canvas{width:100%;height:auto;display:block;background:#fff;border-radius:6px}
+  .legend{display:flex;align-items:center;gap:10px;margin-top:8px;font-size:12px;color:var(--muted)}
+  .bar{width:170px;height:14px;border-radius:3px;
+    background:linear-gradient(90deg,#d00,#800080,#00f)}
+  .controls h2{font-size:15px;margin:0 0 10px}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .field label{display:block;font-size:11px;color:var(--muted);margin-bottom:3px}
+  .field input{width:100%;padding:8px;border:1px solid var(--line);border-radius:6px;font-size:14px}
+  .field input:focus{outline:2px solid #9ab8e6;border-color:var(--accent)}
+  .field.wide{grid-column:span 2}
+  .note{font-size:11.5px;color:var(--muted);margin-top:12px}
+  .note b{color:var(--ink)}
+  code{background:#eef1f6;padding:1px 4px;border-radius:3px;font-size:11px}
+  .badge{display:inline-block;background:#e6eefc;color:#1c55b0;border-radius:4px;
+    padding:1px 6px;font-size:11px;margin-left:6px}
+  .badge.v{background:#e8f7ee;color:#1a7f43}
+</style>
+</head>
+<body>
+<header>
+  <h1>Hopfield model: cavity + N emitters <span class="badge">interactive</span> <span class="badge v">v3</span></h1>
+  <div class="ham">
+    H&nbsp;=
+    (ω<sub>c</sub>&nbsp;−&nbsp;i&thinsp;γ⁄<sub>2</sub>)&thinsp;|0⟩⟨0|
+    &nbsp;+&nbsp;E<sub>e</sub>&thinsp;Σ<sub>j=1..N</sub>&thinsp;|j⟩⟨j|
+    &nbsp;+&nbsp;g<sub>0</sub>&thinsp;Σ<sub>j=1..N</sub>&thinsp;(|0⟩⟨j|&nbsp;+&nbsp;|j⟩⟨0|)
+    &nbsp;+&nbsp;dd&thinsp;Σ<sub>j≠k&nbsp;=&nbsp;1..N</sub>&thinsp;|j⟩⟨k|
+  </div>
+</header>
+<main>
+  <div class="plotcard">
+    <canvas id="plot"></canvas>
+    <div class="legend">
+      <span>emitter (matter)</span><div class="bar"></div><span>photon</span>
+    </div>
+  </div>
+
+  <div class="controls">
+    <h2>Model parameters</h2>
+    <div class="grid">
+      <div class="field"><label>N emitters (1–6)</label><input id="pN" type="number" step="1" min="1" max="6" value="1"></div>
+      <div class="field"><label>cavity loss &nbsp;γ</label><input id="pgamma" type="number" step="0.01" min="0" max="2" value="0"></div>
+
+      <div class="field"><label>emitter energy E<sub>e</sub></label><input id="pEe" type="number" step="0.01" value="1.0"></div>
+      <div class="field"><label>coupling g<sub>0</sub></label><input id="pg0" type="number" step="0.005" value="0.05"></div>
+
+      <div class="field"><label>emitter–emitter dd</label><input id="pdd" type="number" step="0.005" value="0.0"></div>
+      <div class="field"><label>energy disorder ΔE</label><input id="pdeltaE" type="number" step="0.01" value="0.0"></div>
+
+      <div class="field"><label>ω<sub>c</sub> min</label><input id="pwmin" type="number" step="0.05" value="0.80"></div>
+      <div class="field"><label>ω<sub>c</sub> max</label><input id="pwmax" type="number" step="0.05" value="1.20"></div>
+    </div>
+    <p style="font-size:12px;color:var(--muted)">
+      γ=0 ⇒ Hermitian. Set γ&gt;0 to include cavity loss.
+    </p>
+  </div>
+</main>
+
+<script>
+"use strict";
+/* ------------------------------------------------------------------ *
+ *  Eigen-solvers
+ * ------------------------------------------------------------------ */
+
+// Symmetric real eigensolver (Jacobi) — used when gamma == 0.
+// Returns array of {val, vec} sorted by ascending eigenvalue.
+function jacobiSym(Ain){
+  const n=Ain.length; const A=Ain.map(r=>r.slice());
+  const V=Array.from({length:n},(_,i)=>Array.from({length:n},(_,j)=>i===j?1:0));
+  for(let sweep=0;sweep<120;sweep++){
+    let p=0,q=1,max=0;
+    for(let i=0;i<n;i++)for(let j=i+1;j<n;j++) if(Math.abs(A[i][j])>max){max=Math.abs(A[i][j]);p=i;q=j;}
+    if(max<1e-14) break;
+    const apq=A[p][q],app=A[p][p],aqq=A[q][q];
+    const theta=(aqq-app)/(2*apq);
+    const t=Math.sign(theta||1)/(Math.abs(theta)+Math.sqrt(theta*theta+1));
+    const c=1/Math.sqrt(t*t+1), s=t*c, tau=s/(1+c);
+    A[p][p]=app-t*apq; A[q][q]=aqq+t*apq; A[p][q]=0; A[q][p]=0;
+    for(let k=0;k<n;k++){ if(k===p||k===q) continue;
+      const akp=A[k][p],akq=A[k][q];
+      A[k][p]=akp-s*(akq+tau*akp); A[k][q]=akq+s*(akp-tau*akq);
+      A[p][k]=A[k][p]; A[q][k]=A[k][q];
+    }
+    for(let i=0;i<n;i++){ const vip=V[i][p],viq=V[i][q];
+      V[i][p]=vip-s*(viq+tau*vip); V[i][q]=viq+s*(vip-tau*viq);
+    }
+  }
+  return Array.from({length:n},(_,i)=>({val:A[i][i],vec:V.map(r=>r[i])})).sort((a,b)=>a.val-b.val);
+}
+
+// Deterministic Gaussian RNG (Box–Muller over an LCG). Reproducible per page
+// load so the disorder pattern is stable; statistically a normal(0,1).
+function makeBoxMuller(seed){
+  let s=seed>>>0;
+  return function(){
+    s=(s*1103515245+12345)&0x7fffffff; const u1=(s+1)/(0x7fffffff+1);
+    s=(s*1103515245+12345)&0x7fffffff; const u2=(s+1)/(0x7fffffff+1);
+    return Math.sqrt(-2*Math.log(u1))*Math.cos(2*Math.PI*u2);
+  };
+}
+
+/* ------------------------------------------------------------------ *
+ *  Model solver
+ *  returns {grid, E, photon, matter} where each of E/photon/matter is an
+ *  array of rows (one per sweep point) of length M = N+1.
+ * ------------------------------------------------------------------ */
+const NMAX=6;
+function solve(params, smin, smax, npts){
+  const N=Math.max(1,Math.min(NMAX,Math.round(params.N)));
+  const M=N+1;
+  const Ee=params.E_e, g0=params.g0, dd=params.dd, deltaE=params.deltaE, gamma=params.gamma;
+
+  // per-emitter bare energies
+  let Em;
+  if(deltaE<=1e-12){ Em=new Array(N).fill(Ee); }
+  else{ const rng=makeBoxMuller(1234+N); Em=Array.from({length:N},()=>Ee+deltaE*rng()); }
+
+  const useComplex = Math.abs(gamma)>1e-12;
+  const grid=[], E=[], photon=[], matter=[];
+  for(let s=0;s<npts;s++){
+    const wc=smin+(smax-smin)*s/(npts-1);
+    grid.push(wc);
+    const er=new Array(M).fill(0), pr=new Array(M).fill(0), mr=new Array(M).fill(0);
+    if(!useComplex){
+      const H=Array.from({length:M},()=>Array(M).fill(0));
+      H[0][0]=wc;
+      for(let i=1;i<M;i++) H[i][i]=Em[i-1];
+      for(let i=1;i<M;i++){ H[0][i]=g0; H[i][0]=g0; }
+      if(N>1 && dd!==0){ for(let i=1;i<M;i++)for(let j=i+1;j<M;j++){ H[i][j]=dd; H[j][i]=dd; } }
+      const modes=jacobiSym(H);
+      for(let j=0;j<M;j++){
+        er[j]=modes[j].val; const v=modes[j].vec;
+        pr[j]=v[0]*v[0];
+        let m=0; for(let i=1;i<M;i++) m+=v[i]*v[i]; mr[j]=m;
+      }
+    }else{
+      if(typeof math==="undefined"){
+        er.fill(NaN); // signal missing dependency
+      }else{
+        const H=Array.from({length:M},(_,i)=>Array.from({length:M},(_,j)=>{
+          if(i===0&&j===0) return math.complex(wc,-gamma/2);
+          if(i>0&&j>0&&i===j) return math.complex(Em[i-1],0);
+          if(i===0&&j>0) return math.complex(g0,0);
+          if(i>0&&j===0) return math.complex(g0,0);
+          if(i>0&&j>0&&i!==j&&dd!==0) return math.complex(dd,0);
+          return math.complex(0,0);
+        }));
+        const r=math.eigs(H);
+        for(let j=0;j<M;j++){
+          const vec=r.eigenvectors[j].vector;
+          let nrm2=0; for(const x of vec) nrm2+=math.pow(math.abs(x),2);
+          const nrm=Math.sqrt(nrm2)||1;
+          const v=vec.map(x=>math.divide(x,nrm));
+          er[j]=math.re(r.eigenvectors[j].value);
+          pr[j]=math.pow(math.abs(v[0]),2);
+          let m=0; for(let i=1;i<M;i++) m+=math.pow(math.abs(v[i]),2); mr[j]=m;
+        }
+      }
+    }
+    E.push(er); photon.push(pr); matter.push(mr);
+  }
+  return {grid,E,photon,matter};
+}
+
+/* ------------------------------------------------------------------ *
+ *  Accumulate (omega_c, energy) -> red(matter)/blue(photon) image
+ * ------------------------------------------------------------------ */
+function buildImage(sol, nx, ny){
+  const X=sol.grid, E=sol.E, PH=sol.photon, MA=sol.matter;
+  let xr0=Infinity,xr1=-Infinity,er0=Infinity,er1=-Infinity;
+  for(const w of X){ if(w<xr0)xr0=w; if(w>xr1)xr1=w; }
+  for(const row of E) for(const e of row){
+    if(!isFinite(e)) continue; if(e<er0)er0=e; if(e>er1)er1=e;
+  }
+  if(xr0===xr1){ xr0-=0.01; xr1+=0.01; }
+  if(er0===er1){ er0-=0.01; er1+=0.01; }
+  const dx=(xr1-xr0)+1e-15, de=(er1-er0)+1e-15;
+  const red=new Float64Array(ny*nx), blue=new Float64Array(ny*nx);
+  for(let s=0;s<X.length;s++){
+    const xi=Math.floor((X[s]-xr0)/dx*nx);
+    const rowE=E[s],rowP=PH[s],rowM=MA[s];
+    for(let j=0;j<rowP.length;j++){
+      const e=rowE[j], ph=rowP[j], ma=rowM[j];
+      if(!isFinite(e)||(ph+ma)<=0) continue;
+      const yi=Math.floor((e-er0)/de*ny);
+      const idx=Math.max(0,Math.min(ny-1,yi))*nx+Math.max(0,Math.min(nx-1,xi));
+      red[idx]+=ma; blue[idx]+=ph;
+    }
+  }
+  let rmax=0,bmax=0; for(let i=0;i<red.length;i++){ if(red[i]>rmax)rmax=red[i]; if(blue[i]>bmax)bmax=blue[i]; }
+  return {red,blue,rmax,bmax,x:[xr0,xr1],e:[er0,er1]};
+}
+
+/* ------------------------------------------------------------------ *
+ *  Rendering
+ * ------------------------------------------------------------------ */
+const canvas=document.getElementById('plot');
+const ctx=canvas.getContext('2d');
+const NX=320, NY=220;
+const PW=920, PH=520;            // logical drawing size
+const ML=58, MB=46, MT=12, MR=12; // margins
+canvas.width=PW; canvas.height=PH;
+
+let lastParams=null, lastExtent=null;
+
+function draw(){
+  const p=readParams();
+  if(!p) return;
+  const npts=240;
+  const t0=performance.now();
+  const sol=solve(p,p.wmin,p.wmax,npts);
+  const img=buildImage(sol,NX,NY);
+
+  // clear
+  ctx.fillStyle="#ffffff"; ctx.fillRect(0,0,PW,PH);
+  const px=ML, py=MT, pw=PW-ML-MR, ph=PH-MT-MB;
+
+  // draw the accumulated image scaled to plot rect (bilinear smoothing)
+  const off=document.createElement('canvas'); off.width=NX; off.height=NY;
+  const octx=off.getContext('2d');
+  const id=octx.createImageData(NX,NY);
+  for(let y=0;y<NY;y++){
+    for(let x=0;x<NX;x++){
+      // src = bin index into the energy/omega arrays (energy bin 0 = LOW energy)
+      const src=(NY-1-y)*NX+x;   // destination row y (top) reads bin (NY-1-y) = HIGH energy
+      // dst = pixel offset in the ImageData for this same destination row y (row 0 = TOP)
+      const dst=(y*NX+x)*4;
+      const sr=img.rmax>0?Math.sqrt(img.red[src]/img.rmax):0;
+      const sb=img.bmax>0?Math.sqrt(img.blue[src]/img.bmax):0;
+      id.data[dst]=Math.round(sr*255); id.data[dst+1]=0;
+      id.data[dst+2]=Math.round(sb*255); id.data[dst+3]=255;
+    }
+  }
+  octx.putImageData(id,0,0);
+  ctx.imageSmoothingEnabled=true; ctx.imageSmoothingQuality="high";
+  ctx.drawImage(off,px,py,pw,ph);
+
+  // frame + axes
+  ctx.strokeStyle="#000"; ctx.lineWidth=1; ctx.strokeRect(px,py,pw,ph);
+  ctx.fillStyle="#1c2333"; ctx.font="12px sans-serif"; ctx.textAlign="center";
+  ctx.fillText("cavity photon energy  ω"+sub("c"), px+pw/2, PH-16);
+  ctx.save(); ctx.translate(16,py+ph/2); ctx.rotate(-Math.PI/2);
+  ctx.fillText("excitation energy",0,0); ctx.restore();
+
+  // ticks on x (omega_c)  left=k0 = LOW, right=k5 = HIGH
+  ctx.textAlign="center";
+  for(let k=0;k<=5;k++){
+    const x=px+pw*k/5, w=img.x[0]+(img.x[1]-img.x[0])*k/5;
+    ctx.strokeStyle="rgba(0,0,0,.35)"; ctx.beginPath();
+    ctx.moveTo(x,py+ph); ctx.lineTo(x,py+ph+5); ctx.stroke();
+    ctx.fillStyle="#333"; ctx.fillText(fmt(w),x,py+ph+18);
+  }
+  // ticks on y (energy)  top=k0 = HIGH, bottom=k4 = LOW
+  ctx.textAlign="right";
+  for(let k=0;k<=4;k++){
+    const y=py+ph*k/4, e=img.e[1]-(img.e[1]-img.e[0])*k/4;
+    ctx.strokeStyle="rgba(0,0,0,.35)"; ctx.beginPath();
+    ctx.moveTo(px-5,y); ctx.lineTo(px,y); ctx.stroke();
+    ctx.fillStyle="#333"; ctx.fillText(fmt(e),px-8,y+4);
+  }
+  // corner annotations to anchor orientation
+  ctx.fillStyle="#c33"; ctx.font="11px sans-serif"; ctx.textAlign="left";
+  ctx.fillText("high E",px+4,py+14);
+  ctx.fillStyle="#36c"; ctx.fillText("low ω",px+4,py+ph-8);
+
+  // subtitle of current params
+  const d=p.deltaE, g=p.gamma, dd=p.dd, Ee=p.E_e, g0=p.g0;
+  const subtitle="N="+p.N+" emitters  |  Ee="+Ee+"  dE="+d+"  g0="+g0+"  dd="+dd+(g!==0?"  γ="+g+"  (lossy)":"  (lossless)");
+  ctx.fillStyle="#444"; ctx.font="12px sans-serif"; ctx.textAlign="left";
+  ctx.fillText(subtitle,px,py-2);
+
+  lastParams=p; lastExtent=img;
+}
+
+function fmt(v){ if(Math.abs(v)>=100||Math.abs(v)<0.01) return v.toExponential(1); return (+v).toFixed(3); }
+function sub(c){ return c==="c"?"c":c; }
+
+function readParams(){
+  const gv=val('pgamma'), Nv=val('pN'), Ee=val('pEe'), g0=val('pg0'),
+        dd=val('pdd'), dE=val('pdeltaE'), wmin=val('pwmin'), wmax=val('pwmax');
+  if(Nv===null||Ee===null||g0===null||dd===null||dE===null||wmin===null||wmax===null) return null;
+  let N=Math.max(1,Math.min(NMAX,Math.round(Nv)));
+  let a=wmin,b=wmax; if(a>b){const tmp=a;a=b;b=tmp;}
+  return {N:N, E_e:Ee, g0:g0, dd:dd, deltaE:dE,
+          gamma:(gv===null?0:gv), wmin:a, wmax:b};
+}
+function val(id){ const el=document.getElementById(id); const v=parseFloat(el.value); return Number.isFinite(v)?v:null; }
+
+// recompute on change of any input
+document.querySelectorAll('input').forEach(inp=>{
+  inp.addEventListener('input',()=>{ clearTimeout(draw._t); draw._t=setTimeout(draw,60); });
+  inp.addEventListener('change',draw);
+});
+
+// retain 2x device pixel ratio crispness on high-dpi screens
+function fit(){
+  const dpr=window.devicePixelRatio||1;
+  canvas.style.width="100%";
+}
+
+draw();
+</script>
+</body>
+</html>

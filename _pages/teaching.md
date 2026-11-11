@@ -69,3 +69,27 @@ venue: IAP Nano-Teamsitzung 2025
 format: 2 x 120 minutes
 
 material: handwritten lecture notes (please contact me if you are interested)
+
+#### Grundlagen der Physik 1-3
+
+Leading basic physics tutorials at TU Wien
+
+## Educational tools
+
+
+#### Hopfield model
+
+Below is a simple Hopfield model with a single cavity mode coupled to **N** equivalent emitter molecules, solved by full
+diagonalisation. Sweep the cavity photon energy and watch the
+avoided crossing; Hopfield coefficients are in red = emitter (matter), blue = photon. Set **γ > 0** to see the
+cavity linewidth grow while the area stays fixed (a normalized Lorentzian). Using larger N with a non-hermitian matrix might lead to lags.
+
+<div style="position:relative;width:100%;min-height:70vh;">
+  <iframe
+    src="{{ '/hopfield_app.html' | relative_url }}"
+    frameborder="0" allowfullscreen
+    style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;">
+  </iframe>
+</div>
+
+
