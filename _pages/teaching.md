@@ -76,7 +76,6 @@ Leading basic physics tutorials at TU Wien
 
 ## Educational tools
 
-
 #### Hopfield model
 
 Below is a simple Hopfield model with a single cavity mode coupled to **N** equivalent emitter molecules, solved by full
@@ -91,5 +90,3 @@ cavity linewidth grow while the area stays fixed (a normalized Lorentzian). Usin
     style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;">
   </iframe>
 </div>
-
-
