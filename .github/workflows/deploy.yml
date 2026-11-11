@@ -88,7 +88,12 @@ jobs:
           value: ${{ github.repository }}
       - name: Install and Build 🔧
         run: |
-          sudo apt-get update && sudo apt-get install -y imagemagick
+          # GitHub-hosted runners use azure.archive.ubuntu.com, which is often
+          # unreachable / DNS-flaky. Pin to the main archive to avoid transient
+          # 'Temporary failure resolving' failures, and retry on failure.
+          sudo sed -i 's/azure.archive.ubuntu.com/archive.ubuntu.com/g' /etc/apt/sources.list
+          sudo apt-get update && sudo apt-get install -y imagemagick \
+            || (sleep 30 && sudo apt-get update && sudo apt-get install -y imagemagick)
           pip3 install --upgrade nbconvert
           export JEKYLL_ENV=production
           bundle exec jekyll build
