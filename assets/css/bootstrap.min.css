@@ -260,6 +260,17 @@ textarea {
   overflow: auto;
   resize: vertical;
 }
+legend {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  padding: 0;
+  margin-bottom: 0.5rem;
+  font-size: 1.5rem;
+  line-height: inherit;
+  color: inherit;
+  white-space: normal;
+}
 progress {
   vertical-align: baseline;
 }
@@ -330,6 +341,10 @@ h5 {
 .h6,
 h6 {
   font-size: 1rem;
+}
+.lead {
+  font-size: 1.25rem;
+  font-weight: 300;
 }
 hr {
   margin-top: 1rem;
@@ -1574,6 +1589,10 @@ a.close.disabled {
   clear: both;
   content: "";
 }
+.flex-wrap {
+  -ms-flex-wrap: wrap !important;
+  flex-wrap: wrap !important;
+}
 .flex-nowrap {
   -ms-flex-wrap: nowrap !important;
   flex-wrap: nowrap !important;
@@ -1637,6 +1656,22 @@ a.close.disabled {
 }
 .p-0 {
   padding: 0 !important;
+}
+
+.py-2 {
+  padding-top: 0.5rem !important;
+}
+
+.py-2 {
+  padding-bottom: 0.5rem !important;
+}
+
+.px-5 {
+  padding-right: 3rem !important;
+}
+
+.px-5 {
+  padding-left: 3rem !important;
 }
 .ml-auto {
   margin-left: auto !important;
